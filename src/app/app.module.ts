@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import{RouterModule,Routes} from '@angular/router'
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { SliderComponent } from './slider/slider.component';
@@ -9,6 +11,15 @@ import { FeatureComponent } from './feature/feature.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { RecommendedItemsComponent } from './recommended-items/recommended-items.component';
 import { FooterComponent } from './footer/footer.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { CartComponent } from './cart/cart.component';
+
+const appRoutes:Routes=[
+  {path:'',component:HomeComponent},
+  {path:'loginPage',component:LoginComponent},  
+  {path:'cartPage',component:CartComponent}
+];
 
 @NgModule({
   declarations: [
@@ -19,10 +30,14 @@ import { FooterComponent } from './footer/footer.component';
     FeatureComponent,
     TabsComponent,
     RecommendedItemsComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent,
+    LoginComponent,
+    CartComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
