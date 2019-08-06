@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import{RouterModule,Routes} from '@angular/router'
+import{RouterModule,Routes} from '@angular/router';
+import{HttpClientModule}from '@angular/common/http';
 
-import { AppComponent } from './app.component';
+import { AppComponent } from './app.component'; 
 import { HeaderComponent } from './header/header.component';
 import { SliderComponent } from './slider/slider.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -37,7 +38,8 @@ const appRoutes:Routes=[
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
