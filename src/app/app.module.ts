@@ -15,11 +15,13 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { CartComponent } from './cart/cart.component';
+import { FiltercategoryComponent } from './filtercategory/filtercategory.component';
 
 const appRoutes:Routes=[
   {path:'',component:HomeComponent},
   {path:'loginPage',component:LoginComponent},  
-  {path:'cartPage',component:CartComponent}
+  {path:'cartPage',component:CartComponent},
+  {path:'category-product/:myvar',component:FiltercategoryComponent}
 ];
 
 @NgModule({
@@ -34,7 +36,8 @@ const appRoutes:Routes=[
     FooterComponent,
     HomeComponent,
     LoginComponent,
-    CartComponent
+    CartComponent,
+    FiltercategoryComponent
   ],
   imports: [
     BrowserModule,

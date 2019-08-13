@@ -1,0 +1,20 @@
+{
+    "category":[
+        {"id":1,"name":"mens wear"},
+        {"id":2,"name":"women wear"},
+        {"id":3,"name":"kids wear"}
+    ],
+    "brand":[
+        {"id":1,"name":"Puma "},
+        {"id":2,"name":"nike"},
+        {"id":3,"name":"adidas"}
+    ],
+    "product":[
+        {"id":1,"name":"Product 1","price":50,"image":"product1","procaid":1},
+        {"id":2,"name":"Product 2","price":60,"image":"product2","procaid":1},
+        {"id":3,"name":"Product 3","price":80,"image":"product3","procaid":2},
+        {"id":4,"name":"Product 4","price":70,"image":"product4","procaid":3},
+        {"id":5,"name":"Product 5","price":90,"image":"product5","procaid":3},
+        {"id":6,"name":"Product 6","price":70,"image":"product6","procaid":3}
+    ]
+}
