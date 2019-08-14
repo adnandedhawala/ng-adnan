@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import {HttpClient} from '@angular/common/http';
+// import {HttpClient} from '@angular/common/http';
+import { DataprocessService } from '../dataprocess.service';
+
 
 @Component({
   selector: 'app-sidebar',
@@ -8,33 +10,38 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-  public category:any;
-  public brand:any;
+  public category: any;
+  public brand: any;
 
-  constructor(private httpData:HttpClient) { }
+  constructor(private db: DataprocessService) { }
 
   ngOnInit() {
     // console.log(this.httpData);
-    this.httpData.get("http://localhost:3000/category").subscribe(
-      (response)=>{
+    this.db.getData("category").subscribe(
+      (response) => {
         // console.log(response);
         this.category = response;
       },
-      (error)=>{
+      (error) => {
         console.log("Error");
       }
     );
 
-    this.httpData.get("http://localhost:3000/brand").subscribe(
-      (response)=>{
+    this.db.getData("brand").subscribe(
+      (response) => {
         console.log(response);
         this.brand = response;
       },
-      (error)=>{
+      (error) => {
         console.log("Error");
       }
     );
 
   }
+  sendData(id,ev){
+    ev.preventDefault();
 
+    let  data ={brid:id};
+    this.db.setData(data);
+  }
 }

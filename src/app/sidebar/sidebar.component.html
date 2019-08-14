@@ -16,7 +16,7 @@
     <h2>Brands</h2>
     <div class="brands-name">
       <ul class="nav nav-pills nav-stacked">
-        <li *ngFor="let arr of brand"><a href="#"> <span
+        <li *ngFor="let arr of brand"><a href="#" (click)="sendData(arr.id,$event)"> <span
               class="pull-right">(50)</span>{{arr.name}}</a></li>
       </ul>
     </div>
@@ -39,5 +39,5 @@
     <img src="/assets/images/home/shipping.jpg" alt="" />
   </div>
   <!--/shipping-->
-
+  <button (click)="sendData()" >Watch data in console</button>
 </div>

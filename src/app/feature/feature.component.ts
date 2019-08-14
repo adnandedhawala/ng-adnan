@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+// import {HttpClient} from '@angular/common/http';
+import { DataprocessService } from '../dataprocess.service';
 
 @Component({
   selector: 'app-feature',
@@ -7,19 +8,42 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./feature.component.css']
 })
 export class FeatureComponent implements OnInit {
-  public product:any;
+  public product: any;
 
-  constructor(private httpclient:HttpClient) { }
+  constructor(private db: DataprocessService) { }
 
   ngOnInit() {
-    this.httpclient.get("http://localhost:3000/product").subscribe(
-      (response)=>{
+    this.db.getData("product").subscribe(
+      (response) => {
         this.product = response;
       },
-      (error)=>{
+      (error) => {
         console.log(error);
       }
     );
+
+    this.db.obj_subjectClass.subscribe(
+      (result) => {
+        // console.log("right:-->",result);
+        let id = result['brid'];
+        console.log(id);
+        ////////////////////////
+        let urldata = id;
+        // console.log(urldata);
+        this.db.getData("product").subscribe(
+          (result) => {
+            var newArr = [];
+            for (let key in result) {
+              // console.log(result[key]);
+              if (urldata == result[key]['brid']) {
+                newArr.push(result[key]);
+              }
+            }
+            this.product = newArr;
+          }
+        )
+      }
+    )
   }
 
 }

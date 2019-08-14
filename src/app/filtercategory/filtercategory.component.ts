@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {HttpClient} from '@angular/common/http'
+import{DataprocessService} from '../dataprocess.service';
+// import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-filtercategory',
@@ -9,12 +10,12 @@ import {HttpClient} from '@angular/common/http'
 })
 export class FiltercategoryComponent implements OnInit {
   public product:any;
-  constructor(private route: ActivatedRoute,private http:HttpClient) { }
+  constructor(private route: ActivatedRoute,private db:DataprocessService) { }
 
   ngOnInit() {
     let urldata = this.route.snapshot.params.myvar;
     // console.log(urldata);
-    this.http.get("http://localhost:3000/product").subscribe(
+    this.db.getData("product").subscribe(
       (result)=>{
         var newArr =[];
         for(let key in result){
