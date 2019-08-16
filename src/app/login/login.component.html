@@ -1,1 +1,87 @@
-<p>login works!</p>
+<section id="form">
+  <!--form-->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4 col-sm-offset-1">
+        <div class="login-form">
+          <!--login form-->
+          <h2>Login to your account</h2>
+          <form [formGroup]='loginForm' (ngSubmit)="LoginData(loginForm)">
+            <input type="email" placeholder="Email Address" formControlName='userEmail' />
+            <div *ngIf="loginForm.controls['userEmail'].touched && !loginForm.controls['userEmail'].valid">
+              <span *ngIf="loginForm.controls['userEmail'].hasError('required') ">
+                Email is required
+              </span>
+              <span *ngIf="loginForm.controls['userEmail'].hasError('email') ">
+                Invalid Email
+              </span>
+            </div>
+            <input type="password" placeholder="Password" formControlName='userPassword' />
+            <div *ngIf="loginForm.controls['userPassword'].touched && !loginForm.controls['userPassword'].valid">
+              <span *ngIf="loginForm.controls['userPassword'].hasError('required') ">
+                Password is required
+              </span>
+            </div>
+            <span>
+              <input type="checkbox" class="checkbox">
+              Keep me signed in
+            </span>
+            <button type="submit" class="btn btn-default" [disabled]='!loginForm.valid'>Login</button>
+          </form>
+        </div>
+        <!--/login form-->
+      </div>
+      <div class="col-sm-1">
+        <h2 class="or">OR</h2>
+      </div>
+      <div class="col-sm-4">
+        <div class="signup-form">
+          <!--sign up form-->
+          <h2>New User Signup!</h2>
+          <form [formGroup]='registerForm' (ngSubmit)="RegisterData(registerForm)">
+            <input type="text" placeholder="Name" formControlName='userName' />
+            <div *ngIf="registerForm.controls['userName'].touched && !registerForm.controls['userName'].valid">
+              <span *ngIf="registerForm.controls['userName'].hasError('required') ">
+                First name is required
+              </span>
+            </div>
+            <input type="text" placeholder="Mobile" formControlName='userMobile' />
+            <div *ngIf="registerForm.controls['userMobile'].touched && !registerForm.controls['userMobile'].valid">
+              <span *ngIf="registerForm.controls['userMobile'].hasError('required') ">
+                Mobile is required
+              </span>
+            </div>
+            <input type="email" placeholder="Email Address" formControlName='userEmail' />
+            <div *ngIf="registerForm.controls['userEmail'].touched && !registerForm.controls['userEmail'].valid">
+              <span *ngIf="registerForm.controls['userEmail'].hasError('required') ">
+                Email is required
+              </span>
+              <span *ngIf="registerForm.controls['userEmail'].hasError('email') ">
+                Invalid Email
+              </span>
+            </div>
+            <input type="password" placeholder="Password" formControlName='userPassword' />
+            <div *ngIf="registerForm.controls['userPassword'].touched && !registerForm.controls['userPassword'].valid">
+              <span *ngIf="registerForm.controls['userPassword'].hasError('required') ">
+                Password is required
+              </span>
+            </div>
+            <input type="password" placeholder="Password" formControlName='userConfirmPassword' />
+            <div
+              *ngIf="registerForm.controls['userConfirmPassword'].touched && !registerForm.controls['userConfirmPassword'].valid">
+              <span *ngIf="registerForm.controls['userConfirmPassword'].hasError('required') ">
+                Please comfirm the password.
+              </span>
+              <span *ngIf="registerForm.controls['userConfirmPassword'].hasError('mustMatch') ">
+                confirm password match the password.
+              </span>
+            </div>
+            <button type="submit" class="btn btn-default" [disabled]='!registerForm.valid'>Signup</button>
+          </form>
+        </div>
+        <!--/sign up form-->
+      </div>
+    </div>
+  </div>
+</section>
+<!--/form-->
