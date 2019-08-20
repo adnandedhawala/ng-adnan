@@ -21,4 +21,12 @@ export class DataprocessService {
     // console.log(this.obj_subjectClass);
     this.obj_subjectClass.next(rec);
   }
+
+  insertData(record,tableName){
+    return this.http.post(this.urlLink+tableName,record);
+  }
+
+  smsApiProcess(url){
+    return this.http.get(url);
+  }
 }
