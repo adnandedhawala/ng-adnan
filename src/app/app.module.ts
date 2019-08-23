@@ -18,12 +18,19 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { CartComponent } from './cart/cart.component';
 import { FiltercategoryComponent } from './filtercategory/filtercategory.component';
+import { PasswordComponent } from './password/password.component';
+
+import {AfterloginGuard} from './afterlogin.guard';
+import{BeforeloginGuard} from './beforelogin.guard';
+import { LogoutComponent } from './logout/logout.component';
 
 const appRoutes:Routes=[
   {path:'',component:HomeComponent},
-  {path:'loginPage',component:LoginComponent},  
+  {path:'loginPage',component:LoginComponent,canActivate:[AfterloginGuard]},  
   {path:'cartPage',component:CartComponent},
-  {path:'category-product/:myvar',component:FiltercategoryComponent}
+  {path:'category-product/:myvar',component:FiltercategoryComponent},
+  {path:'password',component:PasswordComponent,canActivate:[BeforeloginGuard]},
+  {path:'logoutPage',component:LogoutComponent}
 ];
 
 @NgModule({
@@ -39,7 +46,9 @@ const appRoutes:Routes=[
     HomeComponent,
     LoginComponent,
     CartComponent,
-    FiltercategoryComponent
+    FiltercategoryComponent,
+    PasswordComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

@@ -29,4 +29,9 @@ export class DataprocessService {
   smsApiProcess(url){
     return this.http.get(url);
   }
+
+  public obj_subject_for_name = new Subject();
+  passName(rec){
+    this.obj_subject_for_name.next(rec);
+  }
 }
