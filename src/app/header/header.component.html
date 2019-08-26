@@ -63,7 +63,7 @@
                             <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
                             <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li> -->
                             <li><a  routerLink = ""><i class="fa fa-home"></i> Home</a></li>
-                            <li><a  routerLink = "/cartPage"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                            <li><a  routerLink = "/cartPage"><i class="fa fa-shopping-cart"></i> Cart({{cartTotalCount}})</a></li>
                             <li><a *ngIf="flag1" routerLink = "/loginPage"><i class="fa fa-lock"></i> Login</a></li>
                             <li><a *ngIf="flag2" routerLink = "/password"><i class="fa fa-key"></i> Change password</a></li>
                             <li><a *ngIf="flag2" routerLink = "/logoutPage"><i class="fa fa-key"></i> Logout({{userName}})</a></li>

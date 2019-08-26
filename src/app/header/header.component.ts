@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { DataprocessService } from '../dataprocess.service';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,8 @@ export class HeaderComponent implements OnInit {
   public flag1: boolean = true;
   public flag2: boolean = false;
   public userName: string = "";
-  constructor(private auth: AuthService, private ds: DataprocessService) { }
+  public cartTotalCount:number;
+  constructor(private auth: AuthService, private ds: DataprocessService,private cs:CartService) { }
 
   ngOnInit() {
     let ans = this.auth.checkKey();
@@ -34,6 +36,18 @@ export class HeaderComponent implements OnInit {
         }
       }
     )
+
+    this.ds.obj_cart.subscribe(
+      (res)=>{
+        // console.log(res)
+        this.cartTotalCount = res['count'];
+      },
+      (error)=>{
+        console.log(error);
+      }
+    )
+
+    this.cartTotalCount = this.cs.cart_count();
   }
 
 }

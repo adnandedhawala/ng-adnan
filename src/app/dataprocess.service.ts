@@ -34,4 +34,10 @@ export class DataprocessService {
   passName(rec){
     this.obj_subject_for_name.next(rec);
   }
+
+  public obj_cart = new Subject();
+  passCartCount(rec){
+    this.obj_cart.next(rec);
+  }
+
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // import {HttpClient} from '@angular/common/http';
 import { DataprocessService } from '../dataprocess.service';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-feature',
@@ -10,7 +11,7 @@ import { DataprocessService } from '../dataprocess.service';
 export class FeatureComponent implements OnInit {
   public product: any;
 
-  constructor(private db: DataprocessService) { }
+  constructor(private db: DataprocessService, private cs:CartService) { }
 
   ngOnInit() {
     this.db.getData("product").subscribe(
@@ -44,6 +45,11 @@ export class FeatureComponent implements OnInit {
         )
       }
     )
+  }
+
+  addCart(ev,id){
+    ev.preventDefault();
+    this.cs.add_in_cart(id);
   }
 
 }
