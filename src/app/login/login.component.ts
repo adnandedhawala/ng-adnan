@@ -71,8 +71,6 @@ export class LoginComponent implements OnInit {
         console.log(error);
       }
     )
-
-
   }
   LoginData(formData) {
     // console.log(formData);
@@ -91,8 +89,7 @@ export class LoginComponent implements OnInit {
               userEmail: response[key].userEmail,
               userMobile: response[key].userMobile,
               id: response[key].id,
-            })
-
+            });
             flag = true;
             break;
           }
@@ -102,10 +99,8 @@ export class LoginComponent implements OnInit {
         } else {
           // this.msg = "Valid Credentials";
           let username_from_storage = this.auth.getName();
-          this.ds.passName({uname:username_from_storage});
+          this.ds.passName({ uname: username_from_storage });
           this.route.navigate(['/']);
-
-
         }
       })
   }

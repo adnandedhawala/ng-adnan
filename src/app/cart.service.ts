@@ -47,4 +47,24 @@ export class CartService {
 
     return (ans=="")?0:(ans.split(",").length);
   }
+
+  show_in_cart(){
+    let cartList = this.cart.get("cartRec");
+    if(cartList!=""){
+      let cartArr = cartList.split(',');
+      return cartArr;
+    }else{
+      return "";
+    }
+  }
+
+  delete_from_cart(id){
+    let cartList = this.cart.get("cartRec");
+    let cartArr = cartList.split(',');
+    cartArr.splice(cartArr.indexOf(id.toString()),1);
+    console.log(cartArr);
+    this.cart.set("cartRec",cartArr.join(','));
+    this.ds.passCartCount({count:cartArr.length});
+
+  }
 }

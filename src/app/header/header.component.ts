@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit {
   public cartTotalCount:number;
   constructor(private auth: AuthService, private ds: DataprocessService,private cs:CartService) { }
 
+
   ngOnInit() {
     let ans = this.auth.checkKey();
 
@@ -25,6 +26,7 @@ export class HeaderComponent implements OnInit {
 
     this.ds.obj_subject_for_name.subscribe(
       (response) => {
+        // console.log(response);
         if (response['uname'] != "") {
           this.userName = response['uname'];
           this.flag1 = false;

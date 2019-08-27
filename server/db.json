@@ -91,6 +91,13 @@
       "userEmail": "saad@gmail.com",
       "userPassword": "admin",
       "id": 2
+    },
+    {
+      "userName": "Adnan",
+      "userMobile": "8169988039",
+      "userEmail": "admin@gmail.com",
+      "userPassword": "admin",
+      "id": 3
     }
   ]
 }
